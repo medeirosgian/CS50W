@@ -13,8 +13,8 @@
             <div class="sidebar col-lg-2 col-md-3">
                 <img src="https://image.flaticon.com/icons/png/512/1080/1080877.png" alt="logo" class="img" style="max-width: 50%;">
                 <h2>Encyclopedia</h2>
-                <form>
-                    <input class="form-control" type="text" name="q" placeholder="Search Encyclopedia">
+                <form action="{% url 'wiki:search' %}" method="GET">
+                    <input type="text" name="search" class="form-control">
                 </form>
                 <div class="a" style="margin-top: 10px; ">
                     <a href="{% url 'wiki:index' %}" class="btnin"><button type="button" class="btn btn-dark" style="width: 100%;">Home</button></a>

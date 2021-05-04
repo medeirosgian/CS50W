@@ -8,7 +8,7 @@
 {% block body %}
     <h1>All Pages</h1>
 
-    <ul class="list-group">
+    <ul class="list-group" style="width: 90%; margin-left: 10px;">
         {% for entry in entries %}
             <li class="list-group-item" id='ul'><a href="http://127.0.0.1:8000/wiki/{{ entry }}"> {{entry}} </a></li>
         {% endfor %}

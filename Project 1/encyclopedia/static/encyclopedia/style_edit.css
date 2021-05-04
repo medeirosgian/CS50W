@@ -1,11 +1,11 @@
-.header {
-    background: rgb(71, 71, 71);
-}
-
-#container {
+#edit {
     margin: auto;
     width: 50%;
     text-align: center;
+}
+
+.header {
+    background: rgb(71, 71, 71);
 }
 
 .form {

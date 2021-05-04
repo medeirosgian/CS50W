@@ -14,8 +14,10 @@
     <div class="container">
         <h1>Error!</h1>
         <p>We don't find the {{name}} article</p>
-        <button type="button" class="btn btn-dark">Home</button>
-        <button type="button" class="btn btn-danger">Create a new article</button>
+        
+        <a href="{% url 'wiki:index' %}"><button type="button" class="btn btn-dark">Home</button></a>
+        <a href="{% url 'wiki:new' %}"><button type="button" class="btn btn-danger">Create a new article</button></a>
+        
     </div>
 </body>
 </html>

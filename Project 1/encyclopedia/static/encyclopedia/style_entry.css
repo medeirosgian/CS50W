@@ -17,11 +17,18 @@
 }
 .content {
     width: 720px;
-    height: 100%;
-    margin: 20px;
-    background: #fff;
+    height: 90vh;
+    margin-top: 20%;
+}
+
+.inside {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    text-decoration: none;
+    color: #212529;
+    padding: .5rem 1rem;
 }
 
 #text {
-    margin-left: 20px;
+    margin: 20px;
 }

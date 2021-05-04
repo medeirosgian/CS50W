@@ -8,8 +8,12 @@ from random import seed, randint
 from . import util
 
 class NewTaskForm(forms.Form):
-    title = forms.CharField(label='title')
-    content = forms.CharField(label='content')
+    title = forms.CharField(widget=forms.TextInput(attrs={'class' : 'titleForm'}))
+    content = forms.CharField(widget=forms.TextInput(attrs={'class' : 'contentForm'}))
+
+class EditForm(forms.Form):
+    title = forms.CharField(widget=forms.TextInput(attrs={'class' : 'titleForm'}))
+    content = forms.CharField(widget=forms.TextInput(attrs={'class' : 'contentForm', 'cols' : 80, 'rows' : 20}))
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -17,9 +21,23 @@ def index(request):
     })
 
 def edit(request, name):
+    initial_data = {
+        'title' : name.capitalize(),
+        'content' : util.get_entry(name)
+    }
+    
+    if request.method == "POST":
+        form = EditForm(request.POST, initial=initial_data)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            util.save_entry(title, content)
+            return HttpResponseRedirect(reverse('wiki:index'))
+
     return render(request, "encyclopedia/edit.html", {
         "name" : name.capitalize(),
-        "content" : util.get_entry(name)
+        "content" : util.get_entry(name),
+        "form" : EditForm(initial=initial_data)
     })
 
 def new(request):
@@ -54,6 +72,16 @@ def random(request):
     entries = util.list_entries()
     n = randint(0, len(entries))
     return greet(request, entries[n-1])
+
+def search(request):
+    if request.method == 'GET':
+        search = request.GET.get('search')
+        entries = util.list_entries()
+        entries = list(filter(lambda x: x[0] == search[0], entries))
+        return render(request, 'encyclopedia/search.html', {
+            "posts" : entries,
+            "search" : search
+        })
 
 def greet(request, name):
     # Cria uma variável com a lista dos nomes existentes

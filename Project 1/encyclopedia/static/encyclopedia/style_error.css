@@ -1,5 +1,25 @@
+.container2 {
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 30%;
+    height: 70%;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    text-decoration: none;
+    color: #212529;
+    padding: .5rem 1rem;
+}
+
 .container {
     text-align: center;
     position: relative;
     margin-top: 250px;
+}
+
+.header {
+    height: 15%;
+    background: rgb(71, 71, 71);
 }

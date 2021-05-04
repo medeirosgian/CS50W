@@ -16,10 +16,10 @@
     </div>
     <div class="master">
         <div class="content">
-            <div id="text">
-                <a href="http://127.0.0.1:8000/edit_{{ name }}">Edit this article</a>
-                <p>{{ content | safe }}</p>
-            </div>
+            
+            <a href="http://127.0.0.1:8000/wiki/ed_{{ name }}"><button type="button" class="btn btn-dark">Edit</button></a>
+            <p>{{ content | safe }}</p>
+            
         </div>
     </div>
 </body>
